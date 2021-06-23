@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
 using Boggle.Model;
 
 namespace Boggle
@@ -18,6 +16,7 @@ namespace Boggle
         private TextBlock[,] m_diceTextBlock;
 
         private Stack<(int hPos, int vPos)> m_selectedDice = new Stack<(int, int)>();
+        private char[,] m_boardConfiguration;
 
         public MainWindow()
         {
@@ -111,7 +110,7 @@ namespace Boggle
             string curWord = "";
             foreach (var diePosition in m_selectedDice)
             {
-                var curLetter = m_diceTextBlock[diePosition.hPos, diePosition.vPos].Text;
+                var curLetter = m_boardConfiguration[diePosition.hPos, diePosition.vPos].DiceView();
                 curWord += curLetter;
             }
 
@@ -122,15 +121,15 @@ namespace Boggle
         private void StartButton_OnClick(object sender, RoutedEventArgs e)
         {
             // Randomize Dice
-            var boardConfiguration = m_dice.RandomBoardConfiguration();
+            m_boardConfiguration = m_dice.RandomBoardConfiguration();
 
             // Display Dice
-            board00.Text = boardConfiguration[0, 0].DiceView();
+            board00.Text = m_boardConfiguration[0, 0].DiceView();
             for (var i = 0; i < 5; i++)
             {
                 for (var j = 0; j < 5; j++)
                 {
-                    m_diceTextBlock[i, j].Text = boardConfiguration[i, j].DiceView();
+                    m_diceTextBlock[i, j].Text = m_boardConfiguration[i, j].DiceView();
                 }
             }
 
