@@ -55,6 +55,7 @@
             <SubType>Designer</SubType>
         </ApplicationDefinition>
         <Compile Include="Model\DiceBag.cs" />
+        <Compile Include="Model\Dictionary.cs" />
         <Compile Include="RandomNumberGenerator.cs" />
         <Compile Include="Utilities.cs" />
         <Page Include="MainWindow.xaml">
@@ -87,6 +88,9 @@
     <ItemGroup>
         <None Include="App.config" />
         <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="WordList.txt" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

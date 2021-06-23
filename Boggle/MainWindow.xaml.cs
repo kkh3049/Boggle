@@ -17,6 +17,8 @@ namespace Boggle
 
         private Stack<(int hPos, int vPos)> m_selectedDice = new Stack<(int, int)>();
         private char[,] m_boardConfiguration;
+        
+        private HashSet<string> m_wordList = Dictionary.CreateDictionary(@"D:\DDocuments\PersonalProjects\Boggle\Boggle\Boggle\WordList.txt");
 
         public MainWindow()
         {
