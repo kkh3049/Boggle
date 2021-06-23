@@ -59,7 +59,7 @@
         <Button Name="StartButton" Click="StartButton_OnClick">StartGame</Button>
         <TextBlock Grid.Column="4" Grid.ColumnSpan="3">Score</TextBlock>
         <TextBlock Name="CurrentWord" Grid.Row="1">CurrentWord</TextBlock>
-        <Button Grid.Row="1" Grid.Column="1">Submit</Button>
+        <Button Grid.Row="1" Grid.Column="1" Name="SubmitButton" Click="SubmitButton_OnClick">Submit</Button>
         <ListView Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2">WordList</ListView>
     </Grid>
 </Window>
