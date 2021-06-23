@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -16,7 +17,7 @@ namespace Boggle
 
         private TextBlock[,] m_diceTextBlock;
 
-        private Stack<(int, int)> m_selectedDice = new Stack<(int, int)>();
+        private Stack<(int hPos, int vPos)> m_selectedDice = new Stack<(int, int)>();
 
         public MainWindow()
         {
@@ -67,20 +68,54 @@ namespace Boggle
                 {
                     var horizPos = i;
                     var vertPos = j;
-                    m_diceTextBlock[i,j].MouseDown += (sender, args) => HandleClickDie(horizPos, vertPos, m_diceTextBlock[horizPos, vertPos]);
+                    m_diceTextBlock[i, j].MouseDown += (sender, args) =>
+                        HandleClickDie(horizPos, vertPos, m_diceTextBlock[horizPos, vertPos]);
                 }
             }
         }
 
         private void HandleClickDie(int i, int j, TextBlock textBlock)
         {
-            if (m_selectedDice.Contains((i, j)))
+            if (m_selectedDice.Count > 0)
             {
-                return;
+                var lastEntry = m_selectedDice.Peek();
+                // Undo
+                if (lastEntry == (i, j))
+                {
+                    m_selectedDice.Pop();
+                    textBlock.FontWeight = FontWeights.Normal;
+                    UpdateCurrentWord();
+                    return;
+                }
+
+                if (m_selectedDice.Contains((i, j)))
+                {
+                    return;
+                }
+
+                //Adjacency Check
+                if (Math.Abs(lastEntry.hPos - i) > 1 || Math.Abs(lastEntry.vPos - j) > 1)
+                {
+                    return;
+                }
             }
-            
+
             m_selectedDice.Push((i, j));
             textBlock.FontWeight = FontWeights.Bold;
+            UpdateCurrentWord();
+        }
+
+
+        private void UpdateCurrentWord()
+        {
+            string curWord = "";
+            foreach (var diePosition in m_selectedDice)
+            {
+                var curLetter = m_diceTextBlock[diePosition.hPos, diePosition.vPos].Text;
+                curWord += curLetter;
+            }
+
+            CurrentWord.Text = curWord;
         }
 
 
