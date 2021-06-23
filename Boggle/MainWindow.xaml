@@ -8,58 +8,68 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+
         <TextBlock Grid.Row="1" Grid.Column="2" Name="board00" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="3" Name="board01" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="4" Name="board02" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="5" Name="board03" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="6" Name="board04" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
-        
+
         <TextBlock Grid.Row="2" Grid.Column="2" Name="board10" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="3" Name="board11" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="4" Name="board12" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="5" Name="board13" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="6" Name="board14" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
-        
+
         <TextBlock Grid.Row="3" Grid.Column="2" Name="board20" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="3" Name="board21" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="4" Name="board22" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="5" Name="board23" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="6" Name="board24" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
-        
+
         <TextBlock Grid.Row="4" Grid.Column="2" Name="board30" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="4" Grid.Column="3" Name="board31" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="4" Grid.Column="4" Name="board32" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="4" Grid.Column="5" Name="board33" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="4" Grid.Column="6" Name="board34" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
-        
+
         <TextBlock Grid.Row="5" Grid.Column="2" Name="board40" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="5" Grid.Column="3" Name="board41" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="5" Grid.Column="4" Name="board42" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="5" Grid.Column="5" Name="board43" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
         <TextBlock Grid.Row="5" Grid.Column="6" Name="board44" HorizontalAlignment="Center" VerticalAlignment="Center">A</TextBlock>
-        
+
         <TextBlock Grid.ColumnSpan="4">Boggle</TextBlock>
         <Button Name="StartButton" Click="StartButton_OnClick">StartGame</Button>
-        <TextBlock Grid.Column="4" Grid.ColumnSpan="3">Score</TextBlock>
+        <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Name="ScoreText">Score</TextBlock>
         <TextBlock Name="CurrentWord" Grid.Row="1">CurrentWord</TextBlock>
         <Button Grid.Row="1" Grid.Column="1" Name="SubmitButton" Click="SubmitButton_OnClick">Submit</Button>
-        <ListView Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2">WordList</ListView>
+        <TextBlock Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" Name="ScoredWordsListView">
+            <!--
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding }" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        -->
+        </TextBlock>
     </Grid>
 </Window>

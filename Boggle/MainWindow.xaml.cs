@@ -19,9 +19,19 @@ namespace Boggle
         private List<(int hPos, int vPos)> m_selectedDice = new List<(int, int)>();
         private char[,] m_boardConfiguration;
         private string m_currentWord;
-        private List<string> m_scoredWords = new List<string>();
+        public List<string> ScoredWords = new List<string>();
         private List<List<(int, int)>> m_scoredPositions = new List<List<(int, int)>>();
+
         private int m_currentScore = 0;
+        public int CurrentScore
+        {
+            get => m_currentScore;
+            private set
+            {
+                m_currentScore = value;
+                ScoreText.Text = $"Score: {value}";
+            }
+        }
 
         private HashSet<string> m_wordList =
             Dictionary.CreateDictionary(@"D:\DDocuments\PersonalProjects\Boggle\Boggle\Boggle\WordList.txt");
@@ -182,7 +192,7 @@ namespace Boggle
             var valid = m_wordList.Contains(m_currentWord);
             if (!valid)
             {
-                m_currentScore -= 2;
+                CurrentScore -= 2;
                 //TODO: Show that word is invalid
             }
             else
@@ -204,9 +214,16 @@ namespace Boggle
                     return;
                 }
 
-                m_currentScore += wordScore;
+                CurrentScore += wordScore;
                 //Add Word to List
-                m_scoredWords.Add(m_currentWord);
+                ScoredWords.Add(m_currentWord);
+                var wordList = "";
+                foreach (var word in ScoredWords)
+                {
+                    wordList += $"{word}\n";
+                }
+
+                ScoredWordsListView.Text = wordList;
                 // Reset Selection Stack and selection view
                 foreach (var selectedDie in m_selectedDice)
                 {
