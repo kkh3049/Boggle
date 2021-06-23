@@ -13,3 +13,6 @@ D:\DDocuments\PersonalProjects\Boggle\Boggle\Boggle\obj\Debug\Boggle.csproj.Gene
 D:\DDocuments\PersonalProjects\Boggle\Boggle\Boggle\obj\Debug\Boggle.csproj.CoreCompileInputs.cache
 D:\DDocuments\PersonalProjects\Boggle\Boggle\Boggle\obj\Debug\Boggle.exe
 D:\DDocuments\PersonalProjects\Boggle\Boggle\Boggle\obj\Debug\Boggle.pdb
+D:\DDocuments\PersonalProjects\Boggle\Boggle\Boggle\bin\Debug\ExtendedRandom.dll
+D:\DDocuments\PersonalProjects\Boggle\Boggle\Boggle\bin\Debug\ExtendedRandom.xml
+D:\DDocuments\PersonalProjects\Boggle\Boggle\Boggle\obj\Debug\Boggle.csproj.CopyComplete

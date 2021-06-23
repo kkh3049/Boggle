@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ExtendedRandom</name>
+    </assembly>
+    <members>
+        <member name="T:ExtendedRandom.Random">
+            <summary>
+            Extensions to the built in <see cref="T:System.Random"/> class. All
+            methods are available both as extension methods and static members
+            that use a global <see cref="T:System.Random"/>.
+            </summary>
+        </member>
+        <member name="M:ExtendedRandom.Random.Seed">
+            <summary>
+            Re-initialize the shared randomness object.
+            </summary>
+        </member>
+        <member name="M:ExtendedRandom.Random.Seed(System.Int32)">
+            <summary>
+            Re-initialize the shared randomness object with the given seed.
+            </summary>
+            <param name="seed"></param>
+        </member>
+        <member name="M:ExtendedRandom.Random.Next">
+            <summary>
+            Returns a nonnegative random number.
+            </summary>
+            <returns>
+            A 32-bit signed integer greater than or equal to zero and 
+            less than System.Int32.MaxValue.
+            </returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.Next(System.Int32)">
+            <summary>
+            Returns a nonnegative random number less than the specified maximum.
+            </summary>
+            <param name="end">
+            The exclusive upper bound of the random number to be generated.
+            Must be greater than or equal to zero.
+            </param>
+            <returns>
+            A 32-bit signed integer greater than or equal to zero, and less 
+            than maxValue; that is, the range of return values ordinarily 
+            includes zero but not maxValue. However, if maxValue equals 
+            zero, maxValue is returned.
+            </returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.Next(System.Int32,System.Int32)">
+            <summary>
+            Returns a random number within a specified range.
+            </summary>
+            <param name="start">
+            The inclusive lower bound of the random number returned.
+            </param>
+            <param name="end">
+            The exclusive upper bound of the random number returned. end must
+            be greater than or equal to start.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.Next(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Return a random number within a specified range, bound to a
+            step size. Random number will be a multiple of
+            <paramref name="step"/> added to <paramref name="start"/>.
+            If <paramref name="step"/> is negative, the random range will
+            count *down* from start until it reaches end.
+            </summary>
+            <param name="start">
+            The inclusive "lower" bound of the random number returned.
+            If <paramref name="step"/> is negative, this will represent
+            the *inclusive* upper bound.
+            </param>
+            <param name="end">
+            The exclusive "upper" bound of the random number returned.
+            </param>
+            <param name="step">
+            The step size the random number is bound to. May by negative.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.NextBytes(System.Byte[])">
+            <summary>
+            Fills the elements of a specified array of bytes with random numbers.
+            </summary>
+            <param name="buffer">An array of bytes to contain random numbers.</param>
+            <exception cref="T:System.ArgumentNullException">buffer is null.</exception>
+        </member>
+        <member name="M:ExtendedRandom.Random.NextDouble">
+            <summary>
+            Returns a random number between 0.0 and 1.0
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.Choice``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Return a random element from the non-empty sequence seq.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="seq">Sequence to select from.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            sequence is empty.
+            </exception>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.Choice``1(System.Random,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Return a random element from the non-empty sequence seq.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">Source of randomness.</param>
+            <param name="seq">Sequence to select from.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            sequence is empty.
+            </exception>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.WeightedChoice``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+            <summary>
+            Randomly choose an item from the list where each item in the list 
+            has a probability of being chosen relative to its weight. Each
+            item's weight is generated by running the given
+            <see cref="T:System.Func`2"/> (where U is an <see cref="T:System.Int32"/>) on each
+            item.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="seq"></param>
+            <param name="getWeight"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.WeightedChoice``1(System.Random,System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+            <summary>
+            Randomly choose an item from the list where each item in the list 
+            has a probability of being chosen relative to its weight. Each
+            item's weight is generated by running the given
+            <see cref="T:System.Func`2"/> (where U is an <see cref="T:System.Int32"/>) on each
+            item.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="random"></param>
+            <param name="seq"></param>
+            <param name="getWeight"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.WeightedChoice``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Randomly choose an item from <paramref name="seq"/> where each
+            item in the list has a probability of being chosen relative to its 
+            counterpart in the <paramref name="weights"/> list. Assumes the
+            count of <paramref name="weights"/> is equal to 
+            <paramref name="seq"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="seq"></param>
+            <param name="weights"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.WeightedChoice``1(System.Random,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Choose an item from <paramref name="seq"/> where each item in the
+            list has a probability of being chosen relative to its counterpart
+            in the <paramref name="weights"/> list. Assumes the count of
+            <paramref name="weights"/> is equal to <paramref name="seq"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="seq"></param>
+            <param name="weights"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.WeightedChoice``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+            <summary>
+            Randomly choose an item from the list where each item in the list 
+            has a probability of being chosen relative to its weight. Each
+            item's weight is generated by running the given
+            <see cref="T:System.Func`2"/> (where U is an <see cref="T:System.Int32"/>) on each
+            item.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="seq"></param>
+            <param name="getWeight"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.WeightedChoice``1(System.Random,System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+            <summary>
+            Randomly choose an item from the list where each item in the list 
+            has a probability of being chosen relative to its weight. Each
+            item's weight is generated by running the given
+            <see cref="T:System.Func`2"/> (where U is an <see cref="T:System.Int32"/>) on each
+            item.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="random"></param>
+            <param name="seq"></param>
+            <param name="getWeight"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.WeightedChoice``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Choose an item from <paramref name="seq"/> where each item in the
+            list has a probability of being chosen relative to its counterpart
+            in the <paramref name="weights"/> list. Assumes the count of
+            <paramref name="weights"/> is equal to <paramref name="seq"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="seq"></param>
+            <param name="weights"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.WeightedChoice``1(System.Random,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Choose an item from <paramref name="seq"/> where each item in the
+            list has a probability of being chosen relative to its counterpart
+            in the <paramref name="weights"/> list. Assumes the count of
+            <paramref name="weights"/> is equal to <paramref name="seq"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="seq"></param>
+            <param name="weights"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.BisectRight(System.Collections.Generic.IList{System.Int32},System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Return the index where to insert item <paramref name="toInsert"/> 
+            in list <paramref name="sortedItems"/>, assuming 
+            <paramref name="sortedItems"/> is sorted.
+            </summary>
+            <param name="sortedItems"></param>
+            <param name="toInsert"></param>
+            <param name="low"></param>
+            <param name="high"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.BisectRight(System.Collections.Generic.IList{System.Double},System.Double,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Return the index where to insert item <paramref name="toInsert"/> 
+            in list <paramref name="sortedItems"/>, assuming 
+            <paramref name="sortedItems"/> is sorted.
+            </summary>
+            <param name="sortedItems"></param>
+            <param name="toInsert"></param>
+            <param name="low"></param>
+            <param name="high"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.Shuffle``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Shuffle the sequence and return it as a new 
+            <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="seq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.Shuffle``1(System.Random,System.Collections.Generic.IList{``0})">
+            <summary>
+            Shuffle the sequence and return it as a new 
+            <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="seq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.Sample``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Return a k length list of unique elements chosen from the
+            population sequence. Used for random sampling without replacement.
+            
+            To choose a sample from a range of integers, use 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="population"></param>
+            <param name="k">Sample size.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendedRandom.Random.Sample``1(System.Random,System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Return a k length list of unique elements chosen from the
+            population sequence. Used for random sampling without replacement.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="population"></param>
+            <param name="k">Sample size.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

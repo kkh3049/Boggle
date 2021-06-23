@@ -25,38 +25,38 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <TextBlock Grid.Row="1" Grid.Column="2">A</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="3">A</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="4">A</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="5">A</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="6">A</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2" Name="board00">A</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="3" Name="board01">A</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="4" Name="board02">A</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="5" Name="board03">A</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="6" Name="board04">A</TextBlock>
         
-        <TextBlock Grid.Row="2" Grid.Column="2">A</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="3">A</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="4">A</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="5">A</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="6">A</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="2" Name="board10">A</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="3" Name="board11">A</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="4" Name="board12">A</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="5" Name="board13">A</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="6" Name="board14">A</TextBlock>
         
-        <TextBlock Grid.Row="3" Grid.Column="2">A</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="3">A</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="4">A</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="5">A</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="6">A</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="2" Name="board20">A</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="3" Name="board21">A</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="4" Name="board22">A</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="5" Name="board23">A</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="6" Name="board24">A</TextBlock>
         
-        <TextBlock Grid.Row="4" Grid.Column="2">A</TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="3">A</TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="4">A</TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="5">A</TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="6">A</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="2" Name="board30">A</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="3" Name="board31">A</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="4" Name="board32">A</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="5" Name="board33">A</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="6" Name="board34">A</TextBlock>
         
-        <TextBlock Grid.Row="5" Grid.Column="2">A</TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="3">A</TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="4">A</TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="5">A</TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="6">A</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="2" Name="board40">A</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="3" Name="board41">A</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="4" Name="board42">A</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="5" Name="board43">A</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="6" Name="board44">A</TextBlock>
         
         <TextBlock Grid.ColumnSpan="4">Boggle</TextBlock>
-        <Button >StartGame</Button>
+        <Button Name="StartButton" Click="StartButton_OnClick">StartGame</Button>
         <TextBlock Grid.Column="4" Grid.ColumnSpan="3">Score</TextBlock>
         <TextBlock Grid.Row="1">CurrentWord</TextBlock>
         <Button Grid.Row="1" Grid.Column="1">Submit</Button>
