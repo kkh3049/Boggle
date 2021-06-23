@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
 using Boggle.Model;
 
 namespace Boggle
@@ -11,13 +14,15 @@ namespace Boggle
     {
         private DiceBag m_dice;
 
-        private TextBlock[,] m_dicePositions;
+        private TextBlock[,] m_diceTextBlock;
+
+        private Stack<(int, int)> m_selectedDice = new Stack<(int, int)>();
 
         public MainWindow()
         {
             InitializeComponent();
             m_dice = DiceBag.BasicDiceSet();
-            m_dicePositions = new TextBlock[,]
+            m_diceTextBlock = new TextBlock[,]
             {
                 {
                     board00,
@@ -55,6 +60,27 @@ namespace Boggle
                     board44,
                 },
             };
+
+            for (var i = 0; i < 5; i++)
+            {
+                for (var j = 0; j < 5; j++)
+                {
+                    var horizPos = i;
+                    var vertPos = j;
+                    m_diceTextBlock[i,j].MouseDown += (sender, args) => HandleClickDie(horizPos, vertPos, m_diceTextBlock[horizPos, vertPos]);
+                }
+            }
+        }
+
+        private void HandleClickDie(int i, int j, TextBlock textBlock)
+        {
+            if (m_selectedDice.Contains((i, j)))
+            {
+                return;
+            }
+            
+            m_selectedDice.Push((i, j));
+            textBlock.FontWeight = FontWeights.Bold;
         }
 
 
@@ -69,7 +95,7 @@ namespace Boggle
             {
                 for (var j = 0; j < 5; j++)
                 {
-                    m_dicePositions[i, j].Text = boardConfiguration[i, j].DiceView();
+                    m_diceTextBlock[i, j].Text = boardConfiguration[i, j].DiceView();
                 }
             }
 
